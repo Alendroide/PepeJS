@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('./partials/head.ejs') %>
+    <style>
+        .formu{
+            min-height: 60vh;
+        }
+    </style>
+<body>
+    
+    <%- include('./partials/nav.ejs') %>
+
+    <div class="m-5 formu">
+        <h1>Crear nuevo blog</h1>
+        <form action="/blogs" method="POST">
+            <div class="my-3">
+                <label class="form-label" for="title">Blog Title:</label>
+                <input class="form-control" type="text" id="title" name="title" required>
+            </div>
+            <div class="my-3">
+                <label class="form-label" for="snippet">Blog Snippet:</label>
+                <input class="form-control" type="text" id="snippet" name="snippet" required>
+                <span class="form-text">Es la pequeña vista previa del blog.</span>
+            </div>
+            <div class="my-3">
+                <label class="form-label" for="body">Blog Body:</label>
+                <textarea class="form-control" id="body" name="body" required></textarea>
+            </div>
+            <button class="btn btn-outline-success">Submit</button>
+        </form>
+    </div>
+    <%- include('./partials/footer.ejs') %>
+</body>
+</html>

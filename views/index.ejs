@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('./partials/head.ejs') %>
+<body>
+
+    <%- include('./partials/nav.ejs') %>
+
+    <div class="container-fluid mb-5">
+        <div class="row" style="border-bottom: solid 4px #e3e3e3;">
+            <div class="col-lg-6 col-sm-12 p-5">
+                <h2 class="mb-1 fs-1">Bienvenido a <span class="text-secondary">PepeJS</span></h2>
+                <h3 class="mb-3 fs-3">Descripción del proyecto</h3>
+                <p>Bienvenidos a PepeJS, una plataforma de prueba que usamos como Sandbox para diferentes herramientas.
+                    Hemos construido este sitio utilizando tecnologías modernas para ofrecerte la mejor experiencia posible.</p>
+            </div>
+            <div class="col-lg-6 col-sm-12 d-flex align-items-center" style="background-color: #f3f3f3;">
+                <div class="text-center my-auto">
+                    <img src="/node.png" class="w-50">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid w-50 mx-auto">
+        <h1 class="fs-2 text-center pb-3" style="border-bottom: 4px solid #e3e3e3;">Tecnologías Utilizadas</h1>
+    </div>
+    <div class="container-fluid w-75 mt-5">
+        <div class="row">
+            <div class="col-lg-6 col-sm-12 my-5">
+                <div class="d-flex align-items-center justify-content-center">
+                    <img src="/nodejs.png" width="100px" class="m-3">
+                    <div>
+                        <h3>NodeJs</h3>
+                        <p>Node.js es un entorno de ejecución para JavaScript que se utiliza en el backend de nuestra aplicación.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-sm-12 my-5">
+                <div class="d-flex align-items-center justify-content-center">
+                    <img src="/express.png" width="100px" class="m-3">
+                    <div>
+                        <h3>ExpressJs</h3>
+                        <p>Nos proporciona una serie de características robustas para construir nuestras API y gestionar las rutas.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-sm-12 my-5">
+                <div class="d-flex align-items-center justify-content-center">
+                    <img src="/ejs.png" width="100px" class="m-3">
+                    <div>
+                        <h3>EJS</h3>
+                        <p>EJS es un motor de plantillas para JavaScript que nos permite generar HTML con plantillas en el lado del servidor.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-sm-12 my-5">
+                <div class="d-flex align-items-center justify-content-center">
+                    <img src="/mongo.png" width="100px" class="m-3">
+                    <div>
+                        <h3>MongoDB</h3>
+                        <p>MongoDB es una base de datos NoSQL que utilizamos para almacenar y gestionar los datos de nuestra aplicación.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <%- include('./partials/footer.ejs') %>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./partials/head.ejs') %>
+<body>
+<%- include('./partials/nav.ejs') %>
+<div class="container-fluid pb-3" style="background:#f0f0f0;">
+    <h1 class="p-3 fs-3">Chat Grupal</h1>
+    <div class="container-fluid col-lg-6 col-sm-12 mx-0 chat pb-3 d-flex">
+        <div class="spacer p-3">
+            <ul id="messages">
+                <% result.forEach(mensaje=>{%>
+                <li><%= mensaje.user %>: <%= mensaje.msg %></li>
+                <%})%>
+            </ul>
+        </div>
+        <div>
+            <form id="form" method="POST" action="/chat">
+            <div class="container-fluid d-flex">
+                    <div class="col-lg-2">
+                        <input name="user" class="chatname w-100" type="text" placeholder="Nombre" id="user" autocomplete="off">
+                    </div>
+                    <div class="col-lg-9">
+                        <input name="msg" class="chattext w-100" type="text" placeholder="Escribe un mensaje..." id="msg" autocomplete="off">
+                    </div>
+                    <div class="col-lg-1">
+                        <button class="w-100 chatboton">Send</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<%- include('./partials/footer.ejs') %>
+<script src="/socket.io/socket.io.js"></script>
+<script>
+    const socket = io();
+    const form = document.getElementById('form');
+    const input = document.getElementById('msg');
+    const username = document.getElementById('user');
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      if (input.value && username.value) {
+        const message = `${username.value}: ${input.value}`;
+        socket.emit('chat message', message);
+        
+        const data = {
+            user: username.value,
+            msg: input.value
+        };
+
+        fetch("/chat", {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+        input.value = '';
+      }
+    });
+
+    socket.on('chat message', (msg) => {
+      const item = document.createElement('li');
+      item.textContent = msg;
+      document.getElementById('messages').appendChild(item);
+    });
+</script>
+</body>
+</html>

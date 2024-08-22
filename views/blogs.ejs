@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('./partials/head.ejs') %>
+<body>
+
+    <%- include('./partials/nav.ejs') %>
+
+    <% let counter = 0 %>
+
+    <div class="m-5">
+        <h2 class="mb-3 fs-1">All blogs:</h2>
+        <% if (result.length > 0){ %>
+            <% result.forEach(blog=>{%>
+                <% counter += 1 %>
+                <div class="col-lg-6 col-sm-12 p-4 my-4" style="background: #e2e2e2;border-radius: 20px;">
+                    <a style="text-decoration: none;" class="text-dark" href="/blogs/<%= blog._id %>">
+                    <h3><%= counter %>. <%= blog.title %></h3>
+                    </a>
+                    <h5><%= blog.snippet %></h5>
+                    <p><%= blog.body %></p>
+                </div>
+            <%}) %>
+        <% } else{ %>
+            <p>No hay blogs para mostrar...</p>
+        <% }%>
+    </div>
+
+    <%- include('./partials/footer.ejs') %>
+</body>
+</html>
